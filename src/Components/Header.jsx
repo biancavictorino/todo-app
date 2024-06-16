@@ -21,10 +21,10 @@ const Header = ({onAddTask}) => {
             <h1 className='text-tertiary-color font-bold text-5xl'>Check</h1>
             <h1 className='text-secondary-color font-bold text-5xl'>List</h1>
         </div>
-        <div className='px-8 w-screen flex items-center justify-center'>
-            <form action="" onSubmit={handleSubmit} className='flex flex-row gap-2'>
+        <div className='mx-8 w-auto flex items-center justify-center'>
+            <form action="" onSubmit={handleSubmit} className='flex flex-col justify-center items-center gap-6 lg:flex-row lg:gap-2'>
                 <input className='px-3 rounded-lg h-10 border-2 border-secondary-color bg-secondary-color bg-opacity-20 text-secondary-color lg:w-96' required placeholder='Add a new task' type="text" value={title} onChange={onChangeTitle} />
-                <button className='bg-custom-gradient px-6 rounded-lg text-sm font-semibold flex flex-row items-center gap-2'>
+                <button className='justify-center bg-custom-gradient px-6 rounded-lg text-sm font-semibold flex flex-row items-center gap-2 w-24 h-9'>
                     Create
                 </button>
             </form>
