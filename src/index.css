@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-custom-gradient {
+    background: linear-gradient(0deg, rgba(249,255,255,1) 0%, rgba(255,225,245,1) 100%);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FAFFFB;
+  color: #503981;
+  font-family: 'Poppins';
+}
