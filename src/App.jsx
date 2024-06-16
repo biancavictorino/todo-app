@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import Header from "./Components/Header"
 import Tasks from "./Components/Tasks"
+import LoadingScreen from "./Components/LoadingScreen";
 
 const LOCAL_STORAGE_KEY = "todo:savedTasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
 
   function loadSavedTasks() {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -16,6 +19,15 @@ function App() {
 
   useEffect(() => {
     loadSavedTasks();
+
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000)
+    }, 6000);
+
+    return () => clearTimeout(timer);
   }, [])
 
   function setTasksAndSave(newTasks) {
@@ -52,6 +64,10 @@ function App() {
   function deleteTaskById(taskId) {
     const newTasks = tasks.filter(task => task.id !== taskId);
     setTasksAndSave(newTasks);
+  }
+
+  if (loading) {
+    return <LoadingScreen fadeOut={fadeOut} />;
   }
 
   return (
