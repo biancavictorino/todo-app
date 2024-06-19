@@ -9,7 +9,7 @@ function Lists ({ task, onComplete, onDelete }) {
         <button className='w-6 h-6 border-2 border-primary-color bg-transparent rounded-full flex items-center justify-center flex-shrink-0' onClick={() => onComplete(task.id)}>
           {task.isCompleted ? <BsFillCheckCircleFill size={20} className='border-primary-color rounded-full'/> : <div className='bg-primary-color' />}
         </button>
-        <p className={`flex flex-grow break-all ${task.isCompleted ? `line-through opacity-60` : ""}`}>{task.title}</p>
+        <p className={`flex flex-grow break-words ${task.isCompleted ? `line-through opacity-60` : ""}`}>{task.title}</p>
       </div>
       <div className='flex-shrink-0 pl-4'>
         <MdDelete className='h-6 w-6' onClick={() => onDelete(task.id)}/>
